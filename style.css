@@ -6,25 +6,21 @@ p {
   width: 600px;
 }
 div {
-  /*display: inline-block;*/
   float: left;
 }
 #tableDiv {
   padding-left: 30px;
   padding-top: 65px;
 }
-.questions, .answers {
+td {
   height: 50px;
-  width: 300px;
+  width: 50%;
   outline: 1px solid black;
 }
 table {
   width: 500px;
-  outline: 1px solid black;
+  border: 1px solid black;
 }
-td {
-  width: 50%;
-}
-th {
+#tableTitle {
   border-bottom: 1px solid black;
 }
