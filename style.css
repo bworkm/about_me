@@ -1,12 +1,21 @@
-* {
-  outline: 1px dotted orange;
+h2 {
+  color: darkblue;
 }
-table {
-  width: 600px;
+p {
+  color: black;
 }
-
-.questions .answers {
+.questions, .answers {
   height: 50px;
   width: 300px;
-  outline: 1px solid red;
+  outline: 1px solid black;
+}
+table {
+  width: 500px;
+  outline: 1px solid black;
+}
+td {
+  width: 50%;
+}
+th {
+  border-bottom: 1px solid black;
 }
