@@ -102,10 +102,13 @@ document.getElementById('answerField5').innerHTML = answer5;
 var questionNumber = ('What is my number?');
 var myNumber = 43;
 var guessArray = [];
+var guess;
 var answer6;
 alert('I chose a number between 1 and 100. You have four attempts to guess my number.');
 for (var i = 0; i < 4; i++) {
-  var guess = parseInt(prompt('Enter your guess, 1-100 (attempt ' + (i + 1) + ')'));
+  if (i === 0) {
+    guess = parseInt(prompt('Enter your guess, 1-100 (attempt ' + (i + 1) + ')'));
+  }
   console.log(answer6);
   console.log(guess);
   guessArray[i] = guess;
@@ -115,10 +118,12 @@ for (var i = 0; i < 4; i++) {
     break;
   }
   if (guess < myNumber && i !== 3) {
-    alert('Too low. Guess a higher number');
+    guess = parseInt(prompt('Too low. Guess a higher number (attempt ' + (i + 1) + ')'));
+    // alert('Too low. Guess a higher number');
   }
   if (guess > myNumber && i !== 3) {
-    alert('Too high. Try a lower number');
+    guess = parseInt(prompt('Too high. Guess a lower number (attempt ' + (i + 1) + ')'));
+    // alert('Too high. Try a lower number');
   }
   if (i === 3) {
     alert('Incorrect. Sorry ' + userName + ', that was too many guesses.');
