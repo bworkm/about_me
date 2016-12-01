@@ -1,7 +1,7 @@
-h2 {
+h2, ul {
   color: darkblue;
 }
-p {
+p, li {
   color: black;
   width: 600px;
 }
@@ -21,6 +21,6 @@ table {
   width: 500px;
   border: 1px solid black;
 }
-#tableTitle {
+.tableTitle {
   border-bottom: 1px solid black;
 }
