@@ -1,3 +1,15 @@
+body {
+  padding-left: 20px;
+}
+#favoritesDiv {
+  width: 660px;
+  height: 150px;
+}
+ol {
+  float: left;
+  width: 300px;
+  padding-left: 10px;
+}
 h2, ul, ol {
   color: darkblue;
   font-size: 20px;
@@ -17,12 +29,20 @@ div {
 td {
   height: 50px;
   width: 50%;
-  outline: 1px solid black;
 }
 table {
   width: 500px;
   border: 1px solid black;
+  border-collapse: collapse;
 }
 .tableTitle {
+  text-decoration: underline;
+}
+.questions {
+  border-right: 1px solid black;
+}
+.questions, .answers {
   border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding-left: 10px;
 }
