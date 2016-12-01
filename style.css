@@ -1,9 +1,11 @@
-h2, ul {
+h2, ul, ol {
   color: darkblue;
+  font-size: 20px;
 }
 p, li {
   color: black;
   width: 600px;
+  font-size: 16px;
 }
 div {
   float: left;
