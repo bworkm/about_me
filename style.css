@@ -37,7 +37,7 @@ div {
 }
 td {
   height: 50px;
-  width: 50%;
+  width: 33%;
 }
 table {
   width: 500px;
@@ -46,12 +46,17 @@ table {
 }
 .tableTitle {
   text-decoration: underline;
+  font-size: 20px;
+  padding-bottom: 5px;
 }
-.questions {
-  border-right: 1px solid black;
+.answers {
+  border-left: 1px solid black;
 }
 .questions, .answers {
   border-bottom: 1px solid black;
   border-top: 1px solid black;
   padding-left: 10px;
+}
+.results {
+  /*width: 50%;*/
 }

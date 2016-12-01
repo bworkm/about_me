@@ -22,7 +22,7 @@ if (answer1.toLowerCase() === 'n' | answer1.toLowerCase() === 'no') {
 } else if (answer1.toLowerCase() === 'y' | answer1.toLowerCase() === 'yes'){
   alert('Correct! He bought his home in 2012.');
   console.log('Correct! Great guess.');
-  numOfCorrectAnswers++;
+  numOfCorrectAnswers += 1;
 } else {
   alert('I\'m sorry, your answer must be either "yes" or "no".');
   document.getElementById('answerField1').innerHTML = 'Answer must be yes or no';
@@ -38,7 +38,7 @@ if (answer2.toLowerCase() === 'n' | answer2.toLowerCase() === 'no') {
 } else if (answer2.toLowerCase() === 'y' | answer2.toLowerCase() === 'yes'){
   alert('Yep, plenty of them.');
   console.log('Correct! Great guess.');
-  numOfCorrectAnswers++;
+  numOfCorrectAnswers += 1;
 } else {
   alert('I\'m sorry, your answer must be either "yes" or "no".');
   document.getElementById('answerField2').innerHTML = 'Answer must be yes or no';
@@ -54,7 +54,7 @@ if (answer3.toLowerCase() === 'n' | answer3.toLowerCase() === 'no') {
 } else if (answer3.toLowerCase() === 'y' | answer3.toLowerCase() === 'yes'){
   alert('You betcha! Is it your favorite color too?!');
   console.log('Correct! Great guess.');
-  numOfCorrectAnswers++;
+  numOfCorrectAnswers += 1;
 } else {
   alert('I\'m sorry, your answer must be either "yes" or "no".');
   document.getElementById('answerField3').innerHTML = 'Answer must be yes or no';
@@ -67,7 +67,7 @@ var answer4 = prompt(questionSprouts);
 if (answer4.toLowerCase() === 'n' | answer4.toLowerCase() === 'no') {
   alert('That\'s right! Brussel sprouts are the worst!');
   console.log('Correct! Great guess.');
-  numOfCorrectAnswers++;
+  numOfCorrectAnswers += 1;
 } else if (answer4.toLowerCase() === 'y' | answer4.toLowerCase() === 'yes'){
   alert('WRONG! Those are horrible!');
   console.log('Almost. Maybe next time.');
@@ -86,7 +86,7 @@ if (answer5.toLowerCase() === 'n' | answer5.toLowerCase() === 'no') {
 } else if (answer5.toLowerCase() === 'y' | answer5.toLowerCase() === 'yes'){
   alert('Yessir, a 13yr old and an 11yr old.');
   console.log('Correct! Great guess.');
-  numOfCorrectAnswers++;
+  numOfCorrectAnswers += 1;
 } else {
   alert('I\'m sorry, your answer must be either "yes" or "no".');
   document.getElementById('answerField5').innerHTML = 'Answer must be yes or no';
@@ -114,7 +114,7 @@ for (var i = 0; i < 4; i++) {
   guessArray[i] = guess;
   if (guess === myNumber) {
     alert('Correct!  Great guess, ' + userName + '. You got it after ' + (i + 1) + ' attempts.');
-    numOfCorrectAnswers++;
+    numOfCorrectAnswers += 1;
     break;
   }
   if (guess < myNumber && i !== 3) {
@@ -166,7 +166,7 @@ for (var j = 0; j < maxAttempts; j++) {
       alert('Yes! I have visited ' + choice + '! That only took you ' + (j + 1) + ' guess(es).');
       var answer7 = choice;
       j = maxAttempts;
-      numOfCorrectAnswers++;
+      numOfCorrectAnswers += 1;
       break;
     }
   }
