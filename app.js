@@ -14,6 +14,7 @@ function isInputValid(input) {
     checkInput(input);
   }
 }
+// My new functions are console
 
 function greeting() {
   alert('I want to play a game.');
