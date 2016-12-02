@@ -3,99 +3,105 @@
   <head>
     <meta charset="utf-8">
     <title>About Brian</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/text.css" />
+    <link rel="stylesheet" href="css/960_12_col.css" />
+    <link rel="stylesheet" href="css/demo.css" /> -->
   </head>
   <body>
-    <div id="contentDiv" class="clearfix">
-      <h1>About Brian</h1>
+    <div class="container_12">
+      <div id="contentDiv" class="grid_6">
+        <h1>About Brian</h1>
 
-      <h2>Objective statement</h2>
-      <p>I am an experienced Operations Engineer looking to utilize my skillset in a fast-paced and fun environment.</p>
+        <h2>Objective statement</h2>
+        <p>I am an experienced Operations Engineer looking to utilize my skillset in a fast-paced and fun environment.</p>
 
-      <ul>Education
-        <li>Most of my education is on-the-job training.  I have spent many years in the IT field.  I have had a few classes, but nothing as in depth as Code Fellows.</li>
-        <li>Because of my background, I have not had much training on MACs or Linux.  Although, my PC training has been extensive.</li>
-      </ul>
+        <ul>Education
+          <li>Most of my education is on-the-job training.  I have spent many years in the IT field.  I have had a few classes, but nothing as in depth as Code Fellows.</li>
+          <li>Because of my background, I have not had much training on MACs or Linux.  Although, my PC training has been extensive.</li>
+        </ul>
 
-      <ul>Work Experience
-        <li>I have worked for Microsoft for 6 years as an employee and another 4+ years as a contractor.</li>
-        <li>I have coordinated directly with developers building several websites each year.  These sites were hosted on IIS and involved configuring DNS entries within zone files as well as working with CDN companies for content storage.</li>
-      </ul>
-      <div id="favoritesDiv">
-      <ol>My Favorite Places
-        <li>Various, United States</li>
-        <li>Perth, Australia</li>
-        <li>Hong Kong, China</li>
-        <li>Singapore</li>
-        <li>Italy</li>
-      </ol>
-      <ol start="6">
-        <br />
-        <li>Sasebo, Japan</li>
-        <li>Dubai, UAE</li>
-        <li>Honduras</li>
-        <li>St. Thomas, US Virgin Islands</li>
-        <li>Tijuana, Mexico</li>
-      </ol>
-    </div>
-    </div>
-    <div id="tableDiv">
-      <table>
-        <tr>
-          <th colspan="3" class="tableTitle">Questions about Brian</th>
-        </tr>
-        <tr>
-          <th>My question</th>
-          <th>Your answer</th>
-          <th>Correct answer</th>
-        </tr>
-        <tr>
-          <td id="questionHome" class="questions">Question Here</td>
-          <td id="answerField1" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionPets"  class="questions">Question Here</td>
-          <td id="answerField2" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionColor"  class="questions">Question Here</td>
-          <td id="answerField3" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionSprouts"  class="questions">Question Here</td>
-          <td id="answerField4" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionKids"  class="questions">Question Here</td>
-          <td id="answerField5" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionNumber"  class="questions">Question Here</td>
-          <td id="answerField6" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <td id="questionPlaces"  class="questions">Question Here</td>
-          <td id="answerField7" class="answers">answer here</td>
-          <td id="" class="answers">answer here</td>
-        </tr>
-        <tr>
-          <th id="resultsTitle" class="tableTitle" colspan="3">Results</th>
-        </tr>
-        <tr>
-          <th class="results">Answered correctly</th>
-          <th class="results" colspan="2">Comments</th>
-        </tr>
-        <tr>
-          <td id="resultsField" class="questions">Results Here</td>
-          <td id="commentsField" class="answers" colspan="2">Comments Here</td>
-        </tr>
-      </table>
+        <ul>Work Experience
+          <li>I have worked for Microsoft for 6 years as an employee and another 4+ years as a contractor.</li>
+          <li>I have coordinated directly with developers building several websites each year.  These sites were hosted on IIS and involved configuring DNS entries within zone files as well as working with CDN companies for content storage.</li>
+        </ul>
+        <div id="favoritesDiv" class="grid_6">
+          <ol>My Favorite Places
+            <li>Various, United States</li>
+            <li>Perth, Australia</li>
+            <li>Hong Kong, China</li>
+            <li>Singapore</li>
+            <li>Italy</li>
+          </ol>
+          <ol start="6">
+            <br />
+            <li>Sasebo, Japan</li>
+            <li>Dubai, UAE</li>
+            <li>Honduras</li>
+            <li>St. Thomas, US Virgin Islands</li>
+            <li>Tijuana, Mexico</li>
+          </ol>
+        </div>
+      </div>
+      <div id="tableDiv" class="grid_">
+        <table>
+          <tr class="grid_">
+            <th colspan="3" class="tableTitle">Questions about Brian</th>
+          </tr>
+          <tr>
+            <th class="grid_2">My question</th>
+            <th class="grid_2">Your answer</th>
+            <th class="grid_2">Correct answer</th>
+          </tr>
+          <tr>
+            <td id="questionHome" class="questions">Question Here</td>
+            <td id="answerField1" class="answers">answer here</td>
+            <td id="correctAnswer1" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionPets"  class="questions">Question Here</td>
+            <td id="answerField2" class="answers">answer here</td>
+            <td id="correctAnswer2" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionColor"  class="questions">Question Here</td>
+            <td id="answerField3" class="answers">answer here</td>
+            <td id="correctAnswer3" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionSprouts"  class="questions">Question Here</td>
+            <td id="answerField4" class="answers">answer here</td>
+            <td id="correctAnswer4" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionKids"  class="questions">Question Here</td>
+            <td id="answerField5" class="answers">answer here</td>
+            <td id="correctAnswer5" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionNumber"  class="questions">Question Here</td>
+            <td id="answerField6" class="answers">answer here</td>
+            <td id="correctAnswer6" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <td id="questionPlaces"  class="questions">Question Here</td>
+            <td id="answerField7" class="answers">answer here</td>
+            <td id="correctAnswer7" class="answers">answer here</td>
+          </tr>
+          <tr>
+            <th id="resultsTitle" class="tableTitle" colspan="3">Results</th>
+          </tr>
+          <tr>
+            <th class="results">Answered correctly</th>
+            <th class="results" colspan="2">Comments</th>
+          </tr>
+          <tr>
+            <td id="resultsField" class="questions">Results Here</td>
+            <td id="commentsField" class="answers" colspan="2">Comments Here</td>
+          </tr>
+        </table>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>

@@ -1,22 +1,38 @@
 'use strict';
 //
 // intro
-alert('I want to play a game.');
-console.log('This statement should be read with the voice of Jigsaw.');
 var numOfCorrectAnswers = 0;
-var userName = prompt('What is your name');
-alert('Welcome ' + userName + '. All of your answers must be given in "yes/no" or "y/n" form.');
+var questions = ['Does Brian own a home?','Does Brian have any pets?','Does Brian like the color blue?','Does Brian like brussel sprouts?','Does Brian have any children?','','Where have I been?'];
+// var questionPlaces = ('Where have I been?');
 
-var readyToPlay = prompt('Are you ready to play?').toLowerCase();
-if (readyToPlay === 'yes' | readyToPlay === 'y') {
-  alert('Excellent.  Let us begin.');
-} else {
-  alert('You can\'t get away that easy.');
+function isInputValid(input) {
+  input = input.toLowerCase;
+  if (input === 'y' | input === 'yes' | input === 'n' | input === 'no') {
+    return true;
+  } else {
+    input = prompt('Unrecognized input. Please use the correct format ("y/yes/n/no")');
+    checkInput(input);
+  }
 }
+
+function greeting() {
+  alert('I want to play a game.');
+  console.log('This statement should be read with the voice of Jigsaw.');
+  var name = prompt('What is your name');
+  alert('Welcome ' + name + '. All of your answers must be given in "yes/no" or "y/n" form.');
+
+  var readyToPlay = prompt('Are you ready to play?').toLowerCase();
+  if (readyToPlay === 'yes' | readyToPlay === 'y') {
+    alert('Excellent.  Let us begin.');
+  } else {
+    alert('You can\'t get away that easy.');
+  }
+  return name;
+}
+
 //***************************************************************************
-function firstQuestion(){
-  var questionHome = 'Does Brian own a home?';
-  var answer1 = prompt(questionHome);
+function firstQuestion(question){
+  var answer1 = prompt(question);
   if (answer1.toLowerCase() === 'n' | answer1.toLowerCase() === 'no') {
     alert('Incorrect. Actually, he is proudly a home owner.');
     console.log('Almost. Maybe next time.');
@@ -28,14 +44,12 @@ function firstQuestion(){
     alert('I\'m sorry, your answer must be either "yes" or "no".');
     document.getElementById('answerField1').innerHTML = 'Answer must be yes or no';
   }
-  document.getElementById('questionHome').innerHTML = questionHome;
+  document.getElementById('questionHome').innerHTML = question;
   document.getElementById('answerField1').innerHTML = answer1;
 }
-firstQuestion();
 //***************************************************************************
-function secondQuestion(){
-  var questionPets = 'Does Brian have any pets?';
-  var answer2 = prompt(questionPets);
+function secondQuestion(question){
+  var answer2 = prompt(question);
   if (answer2.toLowerCase() === 'n' | answer2.toLowerCase() === 'no') {
     alert('Incorrect. He has more pets than he needs.');
     console.log('Almost. Maybe next time.');
@@ -47,14 +61,12 @@ function secondQuestion(){
     alert('I\'m sorry, your answer must be either "yes" or "no".');
     document.getElementById('answerField2').innerHTML = 'Answer must be yes or no';
   }
-  document.getElementById('questionPets').innerHTML = questionPets;
+  document.getElementById('questionPets').innerHTML = question;
   document.getElementById('answerField2').innerHTML = answer2;
 }
-secondQuestion();
 //***************************************************************************
-function thirdQuestion(){
-  var questionColor = 'Does Brian like the color blue?';
-  var answer3 = prompt(questionColor);
+function thirdQuestion(question){
+  var answer3 = prompt(question);
   if (answer3.toLowerCase() === 'n' | answer3.toLowerCase() === 'no') {
     alert('Incorrect. It\'s his favorite, actually.');
     console.log('Almost. Maybe next time.');
@@ -66,14 +78,12 @@ function thirdQuestion(){
     alert('I\'m sorry, your answer must be either "yes" or "no".');
     document.getElementById('answerField3').innerHTML = 'Answer must be yes or no';
   }
-  document.getElementById('questionColor').innerHTML = questionColor;
+  document.getElementById('questionColor').innerHTML = question;
   document.getElementById('answerField3').innerHTML = answer3;
 }
-thirdQuestion();
 //***************************************************************************
-function fourthQuestion(){
-  var questionSprouts = 'Does Brian like brussel sprouts?';
-  var answer4 = prompt(questionSprouts);
+function fourthQuestion(question){
+  var answer4 = prompt(question);
   if (answer4.toLowerCase() === 'n' | answer4.toLowerCase() === 'no') {
     alert('That\'s right! Brussel sprouts are the worst!');
     console.log('Correct! Great guess.');
@@ -85,14 +95,12 @@ function fourthQuestion(){
     alert('I\'m sorry, your answer must be either "yes" or "no".');
     document.getElementById('answerField4').innerHTML = 'Answer must be yes or no';
   }
-  document.getElementById('questionSprouts').innerHTML = questionSprouts;
+  document.getElementById('questionSprouts').innerHTML = question;
   document.getElementById('answerField4').innerHTML = answer4;
 }
-fourthQuestion();
 //***************************************************************************
-function fifthQuestion(){
-  var questionKids = 'Does Brian have any children?';
-  var answer5 = prompt(questionKids);
+function fifthQuestion(question){
+  var answer5 = prompt(question);
   if (answer5.toLowerCase() === 'n' | answer5.toLowerCase() === 'no') {
     alert('He is a stepfather to two children.');
     console.log('Almost. Maybe next time.');
@@ -104,16 +112,14 @@ function fifthQuestion(){
     alert('I\'m sorry, your answer must be either "yes" or "no".');
     document.getElementById('answerField5').innerHTML = 'Answer must be yes or no';
   }
-  document.getElementById('questionKids').innerHTML = questionKids;
+  document.getElementById('questionKids').innerHTML = question;
   document.getElementById('answerField5').innerHTML = answer5;
 }
-fifthQuestion();
 //***************************************************************************
 // Add a 6th question to game that takes a numeric value.
 // Tell user if it's too high or too low.
 // Give only four attempts to guess correctly.
 function sixthQuestion(){
-  var questionNumber = ('What is my number?');
   var myNumber = 43;
   var guessArray = [];
   var guess;
@@ -153,13 +159,11 @@ function sixthQuestion(){
   document.getElementById('questionNumber').innerHTML = questionNumber;
   document.getElementById('answerField6').innerHTML = answer6;
 }
-sixthQuestion();
 //***************************************************************************
 // Add 7th question to game with several answers that are stored in an array.
 // Compare the users answer to all of the possible options in the array.
 // Give only six attempts to get at least one answer correct.
 function seventhQuestion(){
-  var questionPlaces = ('Where have I been?');
   var maxAttempts = 6;
 
   var countriesArray = ['United States','Dubai','Australia','Canada','Mexico','Honduras'];
@@ -202,6 +206,22 @@ function seventhQuestion(){
     document.getElementById('commentsField').innerHTML = ('You don\'t seem to know Brian at all :(');
   }
 }
-seventhQuestion();
+
+function showCorrectAnswers() {
+  var correctAnswers = ['Yes','Yes','Yes','No','Yes'];
+  for (var i = 0; i < correctAnswers.length; i++) {
+    document.getElementById('correctAnswer' + (i + 1)).innerHTML = (correctAnswers[i]);
+  }
+}
+
+var userName = greeting();
+firstQuestion(questions[0]);
+secondQuestion(questions[1]);
+thirdQuestion(questions[2]);
+fourthQuestion(questions[3]);
+fifthQuestion(questions[4]);
+// sixthQuestion();
+// seventhQuestion(questions[6]);
+showCorrectAnswers();
 // Keep a tally of the number of correct answers provided by user.
 // Address the user by name to show his/her results.
