@@ -3,18 +3,8 @@
 // intro
 var numOfCorrectAnswers = 0;
 var questions = ['Does Brian own a home?','Does Brian have any pets?','Does Brian like the color blue?','Does Brian like brussel sprouts?','Does Brian have any children?','','Where have I been?'];
-// var questionPlaces = ('Where have I been?');
-
-function isInputValid(input) {
-  input = input.toLowerCase;
-  if (input === 'y' | input === 'yes' | input === 'n' | input === 'no') {
-    return true;
-  } else {
-    input = prompt('Unrecognized input. Please use the correct format ("y/yes/n/no")');
-    checkInput(input);
-  }
-}
-// My new functions are console
+var correctAnswers = ['Yes','Yes','Yes','No','Yes'];
+var responses = [];
 
 function greeting() {
   alert('I want to play a game.');
@@ -23,16 +13,33 @@ function greeting() {
   alert('Welcome ' + name + '. All of your answers must be given in "yes/no" or "y/n" form.');
 
   var readyToPlay = prompt('Are you ready to play?').toLowerCase();
-  if (readyToPlay === 'yes' | readyToPlay === 'y') {
-    alert('Excellent.  Let us begin.');
-  } else {
-    alert('You can\'t get away that easy.');
+  if (isInputValid(readyToPlay)) {
+    return name;
   }
-  return name;
+  // if (readyToPlay === 'yes' | readyToPlay === 'y') {
+  //   alert('Excellent.  Let us begin.');
+  // } else {
+  //   alert('You can\'t get away that easy.');
+  // }
+}
+
+function isInputValid(input) {
+  input = input.toLowerCase;
+  while (input !== 'y' && input !== 'yes' && input !== 'n' && input !== 'no') {
+    input = prompt('Unrecognized input. Please use the correct format ("y/yes/n/no")');
+  }
+  return true;
+}
+
+function askQuestion(question, answer) {
+  var isCorrect = false;
+  var guess = prompt(question);
+  isInputValid(guess);
 }
 
 //***************************************************************************
 function firstQuestion(question){
+  var isCorrect = false;
   var answer1 = prompt(question);
   if (answer1.toLowerCase() === 'n' | answer1.toLowerCase() === 'no') {
     alert('Incorrect. Actually, he is proudly a home owner.');
@@ -47,9 +54,11 @@ function firstQuestion(question){
   }
   document.getElementById('questionHome').innerHTML = question;
   document.getElementById('answerField1').innerHTML = answer1;
+  return isCorrect;
 }
 //***************************************************************************
 function secondQuestion(question){
+  var isCorrect = false;
   var answer2 = prompt(question);
   if (answer2.toLowerCase() === 'n' | answer2.toLowerCase() === 'no') {
     alert('Incorrect. He has more pets than he needs.');
@@ -64,9 +73,11 @@ function secondQuestion(question){
   }
   document.getElementById('questionPets').innerHTML = question;
   document.getElementById('answerField2').innerHTML = answer2;
+  return isCorrect;
 }
 //***************************************************************************
 function thirdQuestion(question){
+  var isCorrect = false;
   var answer3 = prompt(question);
   if (answer3.toLowerCase() === 'n' | answer3.toLowerCase() === 'no') {
     alert('Incorrect. It\'s his favorite, actually.');
@@ -81,9 +92,11 @@ function thirdQuestion(question){
   }
   document.getElementById('questionColor').innerHTML = question;
   document.getElementById('answerField3').innerHTML = answer3;
+  return isCorrect;
 }
 //***************************************************************************
 function fourthQuestion(question){
+  var isCorrect = false;
   var answer4 = prompt(question);
   if (answer4.toLowerCase() === 'n' | answer4.toLowerCase() === 'no') {
     alert('That\'s right! Brussel sprouts are the worst!');
@@ -98,9 +111,11 @@ function fourthQuestion(question){
   }
   document.getElementById('questionSprouts').innerHTML = question;
   document.getElementById('answerField4').innerHTML = answer4;
+  return isCorrect;
 }
 //***************************************************************************
 function fifthQuestion(question){
+  var isCorrect = false;
   var answer5 = prompt(question);
   if (answer5.toLowerCase() === 'n' | answer5.toLowerCase() === 'no') {
     alert('He is a stepfather to two children.');
@@ -115,6 +130,7 @@ function fifthQuestion(question){
   }
   document.getElementById('questionKids').innerHTML = question;
   document.getElementById('answerField5').innerHTML = answer5;
+  return isCorrect;
 }
 //***************************************************************************
 // Add a 6th question to game that takes a numeric value.
@@ -208,8 +224,7 @@ function seventhQuestion(){
   }
 }
 
-function showCorrectAnswers() {
-  var correctAnswers = ['Yes','Yes','Yes','No','Yes'];
+function showCorrectAnswers(correctAnswers) {
   for (var i = 0; i < correctAnswers.length; i++) {
     document.getElementById('correctAnswer' + (i + 1)).innerHTML = (correctAnswers[i]);
   }
@@ -217,10 +232,10 @@ function showCorrectAnswers() {
 
 var userName = greeting();
 firstQuestion(questions[0]);
-secondQuestion(questions[1]);
-thirdQuestion(questions[2]);
-fourthQuestion(questions[3]);
-fifthQuestion(questions[4]);
+// secondQuestion(questions[1]);
+// thirdQuestion(questions[2]);
+// fourthQuestion(questions[3]);
+// fifthQuestion(questions[4]);
 // sixthQuestion();
 // seventhQuestion(questions[6]);
 showCorrectAnswers();
