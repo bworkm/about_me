@@ -5,8 +5,9 @@ var numOfCorrectAnswers = 0;
 var numOfQuestions = 5;
 var minRange = 1;
 var maxRange = 20;
-var randomNumber = Math.floor(Math.random() * (maxRange - minRange)) + minRange;
-
+var randomNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+                  //  Math.floor(Math.random() * (max - min + 1)) + min
+// console.log(randomNumber);
 var questionsAndAnswers = [
   ['Does Brian own a home?','Yes','y'],
   ['Does Brian have any pets?','Yes','y'],
@@ -14,7 +15,7 @@ var questionsAndAnswers = [
   ['Does Brian like brussel sprouts?','No','n'],
   ['Does Brian have any children?','Yes','y'],
   ['What is my number?',randomNumber],
-  ['Where has Brian been?',]
+  ['Where has Brian been?','United States, Dubai, Australia, Canada, Mexico, Honduras']
 ];
 
 var userInputs = [];
@@ -53,13 +54,7 @@ function greeting() {
   var name = prompt('What is your name');
   alert('Welcome ' + name + '. I\'m going to ask you a few questions. Please answer either "yes" or "y" for Yes and "no" or "n" for No.');
 
-  var readyToPlay = prompt('Are you ready to play?');
-  // console.log('readyToPlay :' + readyToPlay);
-  isInputValid(readyToPlay);
-  // This needs to update the 'readyToPlay' variable so the if statement below works.
-  if (readyToPlay.toLowerCase() === 'n' | readyToPlay.toLowerCase() === 'no') {
-    alert('You\'re not getting away that easy.');
-  }
+  prompt('Are you ready to play?');  // Doesn't matter what is typed
 
   alert('Here we go!');
   return name;
@@ -95,42 +90,41 @@ function checkAnswer(questionsAndAnswers, userInputs, position) {
 function sixthQuestion(){
   var guessArray = [];
   var guess;
-  var answer6;
-  alert('I chose a number between 1 and 100. You have four attempts to guess my number.');
-  for (var i = 0; i < 4; i++) {
+  var maxTries = 4;
+  var min = 1;
+  var max = 50;
+
+  alert('I chose a number between ' + min + ' and ' + max + '. You have four attempts to guess my number.');
+
+  for (var i = 0; i < maxTries; i++) {
     if (i === 0) {
-      guess = parseInt(prompt('Enter your guess, 1-100 (attempt ' + (i + 1) + ')'));
+      guess = parseInt(prompt('Enter your guess. (' + min + '-' + max + ') (attempt ' + (i + 1) + ')'));
       // This should verify input is actually a number between min and max.
+    } else if (guess < randomNumber && i !== maxTries) {
+      min = guess;
+      guess = parseInt(prompt('Too low. Guess a higher number. (' + min + '-' + max + ') (attempt ' + (i + 1) + ')'));
+      // alert('Too low. Guess a higher number');
+    } else if (guess > randomNumber && i !== maxTries) {
+      max = guess;
+      guess = parseInt(prompt('Too high. Guess a lower number. (' + min + '-' + max + ') (attempt ' + (i + 1) + ')'));
+      // alert('Too high. Try a lower number');
     }
-    console.log(answer6);
-    console.log(guess);
+    // console.log(answer6);
+    // console.log(guess);
     guessArray[i] = guess;
     if (guess === randomNumber) {
       alert('Correct!  Great guess, ' + userName + '. You got it after ' + (i + 1) + ' attempts.');
       numOfCorrectAnswers += 1;
       break;
     }
-    if (guess < randomNumber && i !== 3) {
-      guess = parseInt(prompt('Too low. Guess a higher number (attempt ' + (i + 1) + ')'));
-      // alert('Too low. Guess a higher number');
+    if (i === maxTries - 1) {
+      alert('Sorry ' + userName + ', the correct answer was ' + randomNumber);
     }
-    if (guess > randomNumber && i !== 3) {
-      guess = parseInt(prompt('Too high. Guess a lower number (attempt ' + (i + 1) + ')'));
-      // alert('Too high. Try a lower number');
-    }
-    if (i === 3) {
-      alert('Incorrect. Sorry ' + userName + ', that was too many guesses.');
-    }
-  }
-  for (i = 0; i < guessArray.length; i++) {
-    if (i !== 0) {
-      answer6 += ', ' + guessArray[i];
-    } else {
-      answer6 = guessArray[i];
-    }
-  }
-  document.getElementById('questionNumber').innerHTML = questionNumber;
-  document.getElementById('answerField6').innerHTML = answer6;
+  }  // end of for loop
+  console.log('guessArray: ' + guessArray);
+
+  document.getElementById('question6').innerHTML = question6;
+  document.getElementById('answerField6').innerHTML = guessArray;
 }
 //***************************************************************************
 // Add 7th question to game with several answers that are stored in an array.
@@ -138,14 +132,15 @@ function sixthQuestion(){
 // Give only six attempts to get at least one answer correct.
 function seventhQuestion(){
   var maxAttempts = 6;
-
+  var answer7 = 'No correct answer'
   var countriesArray = ['United States','Dubai','Australia','Canada','Mexico','Honduras'];
+
   alert('Let\'s play another game, ' + userName + '. See if you can name a country I have visited. You have six attempts to get a guess correct.');
 
   var choice;
   for (var j = 0; j < maxAttempts; j++) {
     if (j === 0) {
-      choice = prompt('Enter your guess of country.');
+      choice = prompt('Enter a country Brian has visited.');
     }
 
     if (j > 0) {
@@ -155,15 +150,20 @@ function seventhQuestion(){
     for (var k = 0; k < countriesArray.length; k++) {
       if (choice.toLowerCase() === countriesArray[k].toLowerCase()) {
         alert('Yes! I have visited ' + choice + '! That only took you ' + (j + 1) + ' guess(es).');
-        var answer7 = choice;
+        answer7 = choice;
         j = maxAttempts;
         numOfCorrectAnswers += 1;
         break;
       }
     }
   }
-  document.getElementById('questionPlaces').innerHTML = questionPlaces;
+  document.getElementById('question7').innerHTML = question7;
   document.getElementById('answerField7').innerHTML = answer7;
+
+  for (var l = 0; l < countriesArray.length; l++) {
+    // temp += (temp + ', '
+  }
+  // document.getElementById('correctAnswer7').innerHTML = ;
 }
 //***************************************************************************
 function showResults() {
@@ -211,14 +211,10 @@ function callQuestions() {
 //***************************************************************************
 // Main function calls
 var userName = greeting();
-// callQuestions();
-// firstQuestion(questions[0]);
-// secondQuestion(questions[1]);
-// thirdQuestion(questions[2]);
-// fourthQuestion(questions[3]);
-// fifthQuestion(questions[4]);
+callQuestions();
 sixthQuestion();
-// seventhQuestion(questions[6]);
+seventhQuestion();
 fillQATable(questionsAndAnswers, userInputs);
+showResults();
 // Keep a tally of the number of correct answers provided by user.
 // Address the user by name to show his/her results.
